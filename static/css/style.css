@@ -24,3 +24,6 @@ form{
 input{
     color: #0e12ec;
 }
+.pagination{
+    text-align: center;
+}

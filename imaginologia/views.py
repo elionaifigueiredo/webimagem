@@ -1,5 +1,8 @@
+from distutils.log import error
+from queue import Empty
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
+from django.core.paginator import Paginator, InvalidPage
 from .forms import *
 
 
@@ -7,10 +10,13 @@ from imaginologia.models import Paciente
 
 # Create your views here.
 
-# Lista 
+# Lista com paginação
 def index(request):
     pessoa = Paciente.objects.all()
-    return render(request, "index.html", {'pessoa':pessoa})
+    paginator = Paginator(pessoa, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "index.html", {'page_obj': page_obj} )
 
 # Adiciona 
 def cadastro(request):
