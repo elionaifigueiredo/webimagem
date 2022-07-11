@@ -13,8 +13,8 @@
         
     <form action="{% url 'cadastro' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %} 
-        Imagem: <input type="file" name="img"><br>
-        Nome: <input type="text" name="nome" >
+        Exame: <input type="file" name="img"><br>
+        Paciente: <input type="text" name="nome" >
         <button  type="submit">Enviar</button>
     </form>
 
@@ -25,8 +25,8 @@
 <table>
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Imagem</th>
+            <th>Paciente</th>
+            <th>Exame</th>
         </tr>
     </thead>
     <tbody>
