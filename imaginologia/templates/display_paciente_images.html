@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load static %}
+
+    {% block 'head'%} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+{% block 'body'%}
+    {% for p in paciente %} 
+    <div class="col-md-4"> 
+        <h1>{{ p.nome }}</h1>
+             <img width="500" src="{{ p.img.url }}"  /> 
+    </div> 
+    {% endfor %} 
+{% endblock %}

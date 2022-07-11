@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+
+    {% block 'head'%} 
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+{% block 'titulo'%}Index{% endblock %}
+
+{% block 'body'%} 
+<h1>INDEX</h1>
+<div class="wrap">
+        
+    <form action="{% url 'cadastro' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+        Imagem: <input type="file" name="img"><br>
+        Nome: <input type="text" name="nome" >
+        <button  type="submit">Enviar</button>
+    </form>
+
+  
+</div>
+
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Imagem</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for p in pessoa %}
+        <tr>
+            <td>{{p.nome}}</td>
+            <td>
+            {% if p.img %}
+            <a href="{% url 'display_img' p.id %}"> <img width="80" src="{{p.img.url}}"/></a>
+            {% else %}
+                <p>There are Imagens to Paciente</p>
+            
+            {% endif %}
+          
+        
+        </td>
+        
+        </tr>
+    {% endfor%}
+    
+    </tbody>
+</table>
+    
+{% endblock %}

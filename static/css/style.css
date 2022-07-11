@@ -1,0 +1,26 @@
+h1{
+    color: blue;
+}
+p{
+    color: red;
+}
+table, th, td {
+    border-collapse: collapse; /* CSS2 */
+    background: #FFFFF0;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+  
+}
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    color: #0e12ec;
+}
